@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happiness Cervejaria | Fábrica de Chopp e Drinks em Belo Horizonte</title>
+    <meta name="description" content="Fábrica de Chopp e Drinks artesanais em BH. Estrutura completa para seu evento, festa ou comércio com atendimento 5 estrelas.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0f0f11',
+                        brandGray: '#1f1f23',
+                        brandLight: '#f8f9fa',
+                        brandBorder: '#e5e7eb',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #0f0f11;
+        }
+        
+        .light-card {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white bg-white text-neutral-900">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-neutral-900 bg-black flex items-center justify-center text-white font-black text-lg transition-transform group-hover:scale-105">
+                    H
+                </div>
+                <div>
+                    <span class="block font-black text-base sm:text-lg tracking-widest uppercase text-neutral-900 leading-none">HAPPINESS</span>
+                    <span class="block text-[9px] sm:text-[10px] tracking-widest text-neutral-500 uppercase font-semibold mt-1">Cervejaria & Drinks</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-bold tracking-wider uppercase">
+                <a href="#sobre" class="text-neutral-600 hover:text-black transition-colors">Sobre Nós</a>
+                <a href="#servicos" class="text-neutral-600 hover:text-black transition-colors">Serviços</a>
+                <a href="#diferenciais" class="text-neutral-600 hover:text-black transition-colors">Diferenciais</a>
+                <a href="#calculadora" class="text-neutral-600 hover:text-black transition-colors">Calculadora</a>
+                <a href="#depoimentos" class="text-neutral-600 hover:text-black transition-colors">Avaliações</a>
+                <a href="#localizacao" class="text-neutral-600 hover:text-black transition-colors">Localização</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20chopp%20para%20meu%20evento." target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 sm:px-5 bg-black hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 shadow-md hover:shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-base text-green-400"></i>
+                    <span>Pedir Chopp</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2.5 text-neutral-800 hover:text-black focus:outline-none rounded-lg active:bg-neutral-100" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-neutral-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#sobre" class="mobile-link block text-sm font-bold tracking-wider text-neutral-700 hover:text-black uppercase py-1">Sobre Nós</a>
+            <a href="#servicos" class="mobile-link block text-sm font-bold tracking-wider text-neutral-700 hover:text-black uppercase py-1">Serviços</a>
+            <a href="#diferenciais" class="mobile-link block text-sm font-bold tracking-wider text-neutral-700 hover:text-black uppercase py-1">Diferenciais</a>
+            <a href="#calculadora" class="mobile-link block text-sm font-bold tracking-wider text-neutral-700 hover:text-black uppercase py-1">Calculadora de Chopp</a>
+            <a href="#depoimentos" class="mobile-link block text-sm font-bold tracking-wider text-neutral-700 hover:text-black uppercase py-1">Avaliações</a>
+            <a href="#localizacao" class="mobile-link block text-sm font-bold tracking-wider text-neutral-700 hover:text-black uppercase py-1">Localização</a>
+            <div class="pt-4 border-t border-neutral-200">
+                <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20chopp%20para%20meu%20evento." target="_blank" class="w-full py-3.5 bg-black text-white font-bold uppercase tracking-wider text-xs rounded-lg text-center flex items-center justify-center gap-2 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg text-green-400"></i>
+                    Solicitar via WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 bg-neutral-50 border-b border-neutral-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <!-- Google Rating Pill -->
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-neutral-300 bg-white shadow-sm text-xs font-semibold text-neutral-700">
+                        <div class="flex text-amber-500">
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <span class="font-black text-black">5,0</span> no Google
+                        <span class="text-neutral-300">•</span>
+                        <span class="text-neutral-600">+20 Avaliações Excepcionais</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-neutral-900 leading-tight">
+                        Fábrica de Chopp e Drinks <br>
+                        <span class="text-neutral-500 font-light italic text-3xl sm:text-4xl md:text-5xl">para momentos inesquecíveis.</span>
+                    </h1>
+
+                    <p class="text-neutral-600 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0 font-normal">
+                        Estrutura completa, atendimento ágil e chopp artesanal de alta qualidade para o seu evento, casamento, aniversário ou estabelecimento comercial em Belo Horizonte.
+                    </p>
+
+                    <!-- Headline & CTA buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                        <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-black hover:bg-neutral-800 text-white font-bold uppercase tracking-wider text-xs rounded-xl transition-all shadow-lg hover:scale-[1.02] flex items-center justify-center gap-3 active:scale-95">
+                            <i class="fa-brands fa-whatsapp text-lg text-green-400"></i>
+                            Fazer Orçamento Rápido
+                        </a>
+                        <a href="#calculadora" class="w-full sm:w-auto px-8 py-4 border border-neutral-300 hover:border-black bg-white font-bold uppercase tracking-wider text-xs rounded-xl text-neutral-800 transition-all text-center shadow-sm active:bg-neutral-100">
+                            Calcular Litros para Evento
+                        </a>
+                    </div>
+
+                    <!-- Quick Key Info Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-neutral-200 max-w-xl mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <p class="text-[11px] font-bold text-neutral-400 uppercase tracking-wider">Localização</p>
+                            <p class="text-sm font-bold text-black mt-0.5">Belo Horizonte</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-[11px] font-bold text-neutral-400 uppercase tracking-wider">Barril / Logística</p>
+                            <p class="text-sm font-bold text-black mt-0.5">Pronta Entrega</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-[11px] font-bold text-neutral-400 uppercase tracking-wider">Equipamentos</p>
+                            <p class="text-sm font-bold text-black mt-0.5">Chopeiras Premium</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Visual -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md p-8 bg-white rounded-2xl border border-neutral-200 shadow-xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-neutral-100 pb-4">
+                            <span class="text-xs uppercase tracking-widest text-neutral-500 font-bold">Happiness Cervejaria</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-900 text-[10px] uppercase font-extrabold rounded-full border border-neutral-200">Microcervejaria BH</span>
+                        </div>
+
+                        <!-- Card Preview Visual -->
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-neutral-50 border border-neutral-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center">
+                                        <i class="fa-solid fa-beer-mug-empty"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-black">Chopp Artesanal Fresco</h4>
+                                        <p class="text-xs text-neutral-500">Pilsen, IPA e Especiais</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-neutral-800 font-mono">30L e 50L</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-neutral-50 border border-neutral-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center">
+                                        <i class="fa-solid fa-glass-water"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-black">Linha de Drinks</h4>
+                                        <p class="text-xs text-neutral-500">Práticos para Eventos</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-neutral-800 font-mono">Prontos</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-neutral-50 border border-neutral-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center">
+                                        <i class="fa-solid fa-truck-fast"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-black">Instalação Completa</h4>
+                                        <p class="text-xs text-neutral-500">Chopeiras elétricas e a gelo</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-neutral-800 font-mono">Suporte BH</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 text-center">
+                            <a href="tel:31982140918" class="text-xs font-semibold text-neutral-600 hover:text-black transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-phone text-xs"></i>
+                                Central: (31) 98214-0918
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós Section -->
+    <section id="sobre" class="py-16 sm:py-24 scroll-mt-20 border-b border-neutral-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <div class="p-8 rounded-2xl bg-neutral-900 text-white space-y-6 shadow-xl">
+                        <div class="inline-block p-3 bg-neutral-800 rounded-xl border border-neutral-700 text-white">
+                            <i class="fa-solid fa-industry text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase tracking-wide">Estrutura & Tradição em BH</h3>
+                        <p class="text-neutral-300 text-sm leading-relaxed font-normal">
+                            A <strong class="text-white">Happiness Cervejaria</strong> nasceu com a missão de entregar não apenas bebidas excepcionais, mas a experiência ideal para cada celebração.
+                        </p>
+                        <p class="text-neutral-300 text-sm leading-relaxed font-normal">
+                            Localizada no bairro Jardim Alvorada em Belo Horizonte, nossa fábrica conta com equipamentos modernos, controle rigoroso de higiene e matéria-prima selecionada para oferecer chopps e drinks de altíssimo padrão.
+                        </p>
+                        <div class="pt-4 border-t border-neutral-800 flex items-center gap-6">
+                            <div>
+                                <span class="block text-2xl font-black text-white">100%</span>
+                                <span class="text-xs text-neutral-400 uppercase font-semibold">Qualidade Artesanal</span>
+                            </div>
+                            <div class="h-8 w-px bg-neutral-800"></div>
+                            <div>
+                                <span class="block text-2xl font-black text-white">5.0 ★</span>
+                                <span class="text-xs text-neutral-400 uppercase font-semibold">Satisfação Google</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-neutral-100 border border-neutral-200 text-xs text-neutral-700 font-mono uppercase font-bold">
+                        <i class="fa-solid fa-circle text-[8px] text-black"></i> Sobre a Microcervejaria
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-neutral-900">
+                        Compromisso com o Sabor e com a Sua Tranquilidade
+                    </h2>
+
+                    <p class="text-neutral-600 text-base leading-relaxed font-normal">
+                        Sabemos que organizar uma festa, casamento ou manter o fluxo de um bar exige pontualidade e confiabilidade. Na Happiness Cervejaria, trabalhamos para que você não precise se preocupar com nada além de apreciar o momento.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                        <div class="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2">
+                            <div class="text-black font-bold text-sm uppercase flex items-center gap-2">
+                                <i class="fa-solid fa-square-check text-neutral-700"></i>
+                                Processo Controlado
+                            </div>
+                            <p class="text-xs text-neutral-600 leading-relaxed">
+                                Produção com parâmetros rigorosos para garantir frescor, estabilidade do colarinho e sabor autêntico.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2">
+                            <div class="text-black font-bold text-sm uppercase flex items-center gap-2">
+                                <i class="fa-solid fa-headset text-neutral-700"></i>
+                                Atendimento Personalizado
+                            </div>
+                            <p class="text-xs text-neutral-600 leading-relaxed">
+                                Equipe especializada disposta a auxiliar no cálculo correto da quantidade para evitar desperdícios ou falta.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://instagram.com/happiness_cervejaria" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-3 bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors shadow-md">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                            Siga @happiness_cervejaria no Instagram
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços e Produtos Section -->
+    <section id="servicos" class="py-16 sm:py-24 scroll-mt-20 border-b border-neutral-200 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 bg-white border border-neutral-200 rounded-md text-xs text-neutral-700 font-mono uppercase font-bold shadow-sm">Nossas Soluções</span>
+                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-neutral-900">Serviços e Produtos Especiais</h2>
+                <p class="text-neutral-600 text-sm sm:text-base font-normal">
+                    Soluções completas sob medida para eventos residenciais, corporativos, casamentos e estabelecimentos comerciais.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="p-8 rounded-2xl bg-white border border-neutral-200 shadow-md hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-glass-water-droplet"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase tracking-wide text-black">Chopp para Eventos</h3>
+                        <p class="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+                            Fornecimento de barris de Chopp de 30L e 50L para aniversários, casamentos, churrascos e confraternizações. Acompanha equipamento de extração higienizado.
+                        </p>
+                        <ul class="space-y-2 text-xs text-neutral-700 pt-2 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Barris de 30 Litros e 50 Litros</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Chopeiras elétricas ou a gelo</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Entrega e instalação inclusas</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20chopp%20para%20meu%20evento." target="_blank" class="w-full py-3 bg-black hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all text-center block shadow-sm">
+                            Consultar Valores
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="p-8 rounded-2xl bg-white border border-neutral-200 shadow-md hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-martini-glass-citrus"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase tracking-wide text-black">Linha de Drinks</h3>
+                        <p class="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+                            Opções práticas e saborosas de drinks prontos para servimento rápido em festas e celebrações, garantindo padronização e sabor inigualável.
+                        </p>
+                        <ul class="space-y-2 text-xs text-neutral-700 pt-2 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Sabores selecionados</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Alta praticidade de consumo</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Excelente custo-benefício</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20linha%20de%20drinks." target="_blank" class="w-full py-3 bg-black hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all text-center block shadow-sm">
+                            Conhecer Drinks
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="p-8 rounded-2xl bg-white border border-neutral-200 shadow-md hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase tracking-wide text-black">Fornecimento Bares e B2B</h3>
+                        <p class="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+                            Parceria comercial recorrente para bares, restaurantes, pubs e casas de shows em Belo Horizonte e Região Metropolitana.
+                        </p>
+                        <ul class="space-y-2 text-xs text-neutral-700 pt-2 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Fornecimento contínuo e regular</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Suporte técnico nos equipamentos</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-black"></i> Condições especiais para parceiros</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Sou%20comerciante%20e%20quero%20fornecimento%20da%20Happiness%20Cervejaria." target="_blank" class="w-full py-3 bg-black hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all text-center block shadow-sm">
+                            Seja um Parceiro
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais Section -->
+    <section id="diferenciais" class="py-16 sm:py-24 scroll-mt-20 border-b border-neutral-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 rounded-md text-xs text-neutral-700 font-mono uppercase font-bold">Por que a Happiness?</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-neutral-900">
+                        Diferenciais que Garantem a Excelência do Seu Evento
+                    </h2>
+                    <p class="text-neutral-600 text-sm sm:text-base font-normal leading-relaxed">
+                        Compromisso absoluto com higienização, qualidade do produto e satisfação de cada cliente.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4 p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+                            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-black text-black uppercase">Avaliação Máxima 5.0 no Google</h4>
+                                <p class="text-xs text-neutral-600 mt-1">Reconhecida pelos próprios clientes como um lugar excepcional com profissionais super atenciosos.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+                            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-pump-soap"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-black text-black uppercase">Higiene e Manutenção Impecável</h4>
+                                <p class="text-xs text-neutral-600 mt-1">Sanitização rigorosa de serpentinas, extratoras e barris antes de cada entrega para garantir chopp puro.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+                            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-clock flex-shrink-0"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-black text-black uppercase">Pontualidade na Entrega</h4>
+                                <p class="text-xs text-neutral-600 mt-1">Agendamento preciso de entrega e retirada para que a sua única preocupação seja aproveitar a festa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="p-8 rounded-2xl bg-neutral-900 text-white space-y-6 shadow-xl">
+                        <h3 class="text-xl font-black uppercase tracking-wide text-white border-b border-neutral-800 pb-4">
+                            Sua Festa sem Estresse
+                        </h3>
+                        
+                        <div class="space-y-4 text-xs sm:text-sm text-neutral-300">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-green-400 text-base"></i>
+                                <span>Orientação completa sobre regulagem de chopeiras</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-green-400 text-base"></i>
+                                <span>Suporte técnico rápido durante o período do evento</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-green-400 text-base"></i>
+                                <span>Barris armazenados na temperatura ideal</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-green-400 text-base"></i>
+                                <span>Facilidade no pagamento e agilidade no orçamento</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-xl bg-neutral-800 border border-neutral-700 text-center space-y-3">
+                            <p class="text-xs uppercase tracking-widest text-neutral-400 font-bold">Precisa de Ajuda para Planejar?</p>
+                            <p class="text-sm font-bold text-white">Fale direto com o nosso especialista por WhatsApp</p>
+                            <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20duvidas%20sobre%20o%20chopp." target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-neutral-200 text-black font-bold uppercase tracking-wider text-xs rounded-lg transition-colors w-full shadow-md">
+                                <i class="fa-brands fa-whatsapp text-base text-green-600"></i>
+                                Chamar no WhatsApp (31) 98214-0918
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculadora de Chopp Section -->
+    <section id="calculadora" class="py-16 sm:py-24 scroll-mt-20 border-b border-neutral-200 bg-neutral-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+                <span class="px-3 py-1 bg-white border border-neutral-200 rounded-md text-xs text-neutral-700 font-mono uppercase font-bold shadow-sm">Calculadora Interativa</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-neutral-900">Quanto Chopp Eu Preciso?</h2>
+                <p class="text-neutral-600 text-xs sm:text-sm font-normal">Calcule a quantidade aproximada recomendada de litros de chopp para o seu evento.</p>
+            </div>
+
+            <div class="p-6 sm:p-10 rounded-2xl bg-white border border-neutral-200 shadow-xl space-y-6 sm:space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    
+                    <!-- Input 1: Número de Pessoas -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-black uppercase tracking-wider text-neutral-700">
+                            Número de Pessoas (Consumidores)
+                        </label>
+                        <div class="relative">
+                            <input type="number" id="calc-guests" min="5" value="30" class="w-full px-4 py-3 rounded-lg bg-neutral-50 border border-neutral-300 text-black font-mono font-bold text-base focus:outline-none focus:border-black transition-colors">
+                            <span class="absolute right-4 top-3.5 text-xs text-neutral-500 font-semibold">pessoas</span>
+                        </div>
+                    </div>
+
+                    <!-- Input 2: Duração do Evento -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-black uppercase tracking-wider text-neutral-700">
+                            Duração Estimada do Evento
+                        </label>
+                        <div class="relative">
+                            <select id="calc-hours" class="w-full px-4 py-3 rounded-lg bg-neutral-50 border border-neutral-300 text-black font-mono font-bold text-base focus:outline-none focus:border-black transition-colors">
+                                <option value="2">2 Horas</option>
+                                <option value="4" selected>4 Horas</option>
+                                <option value="6">6 Horas</option>
+                                <option value="8">8+ Horas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Input 3: Perfil dos Convidados -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-black uppercase tracking-wider text-neutral-700">
+                        Perfil do Público
+                    </label>
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                        <button type="button" onclick="setProfile('moderate')" id="btn-profile-moderate" class="calc-profile-btn px-2 sm:px-4 py-3 rounded-lg border border-black bg-black text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all active:scale-95">
+                            Moderado
+                        </button>
+                        <button type="button" onclick="setProfile('standard')" id="btn-profile-standard" class="calc-profile-btn px-2 sm:px-4 py-3 rounded-lg border border-neutral-300 bg-neutral-50 text-neutral-700 font-bold text-[11px] sm:text-xs uppercase tracking-wider hover:border-black transition-all active:scale-95">
+                            Padrão
+                        </button>
+                        <button type="button" onclick="setProfile('heavy')" id="btn-profile-heavy" class="calc-profile-btn px-2 sm:px-4 py-3 rounded-lg border border-neutral-300 bg-neutral-50 text-neutral-700 font-bold text-[11px] sm:text-xs uppercase tracking-wider hover:border-black transition-all active:scale-95">
+                            Animado
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results display -->
+                <div class="p-5 sm:p-6 rounded-xl bg-neutral-900 text-white border border-neutral-800 text-center space-y-3 sm:space-y-4 shadow-md">
+                    <p class="text-[11px] sm:text-xs uppercase tracking-widest text-neutral-400 font-bold">Estimativa Sugerida</p>
+                    <div class="flex items-baseline justify-center gap-2">
+                        <span id="calc-result-liters" class="text-4xl sm:text-5xl font-black text-white font-mono">45</span>
+                        <span class="text-lg sm:text-xl font-bold text-neutral-300">Litros</span>
+                    </div>
+                    <p id="calc-suggestion-text" class="text-xs text-neutral-300">
+                        Recomendamos <strong>1 Barril de 50L</strong> ou <strong>2 Barris de 30L</strong> para atender com folga.
+                    </p>
+                </div>
+
+                <div>
+                    <button onclick="sendCalculatedBudget()" class="w-full py-4 bg-black hover:bg-neutral-800 text-white font-bold uppercase tracking-wider text-xs rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 active:scale-98">
+                        <i class="fa-brands fa-whatsapp text-lg text-green-400"></i>
+                        Pedir Orçamento Desta Quantidade via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="py-16 sm:py-24 scroll-mt-20 border-b border-neutral-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 rounded-md text-xs text-neutral-700 font-mono uppercase font-bold">Avaliações Verificadas</span>
+                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-neutral-900">O Que Nossos Clientes Dizem</h2>
+                <p class="text-neutral-600 text-sm font-normal">Depoimentos reais extraídos do Google Maps (Nota 5,0 de 5,0).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="p-8 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col justify-between space-y-6 shadow-sm">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-500">
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <p class="text-neutral-800 text-sm italic font-medium leading-relaxed">
+                            "Como dar nota pra um lugar excepcional pra compra chopp."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-neutral-200 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs font-bold text-black uppercase">Cliente Verificado</span>
+                            <span class="block text-[10px] text-neutral-500 font-semibold">Google Avaliações</span>
+                        </div>
+                        <i class="fa-brands fa-google text-neutral-400 text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-8 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col justify-between space-y-6 shadow-sm">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-500">
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <p class="text-neutral-800 text-sm italic font-medium leading-relaxed">
+                            "Excelente estrutura, organização, profissionais qualificados e super atenciosos."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-neutral-200 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs font-bold text-black uppercase">Cliente Verificado</span>
+                            <span class="block text-[10px] text-neutral-500 font-semibold">Google Avaliações</span>
+                        </div>
+                        <i class="fa-brands fa-google text-neutral-400 text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-8 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col justify-between space-y-6 shadow-sm">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-500">
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <i class="fa-solid fa-star text-xs"></i>
+                        </div>
+                        <p class="text-neutral-800 text-sm italic font-medium leading-relaxed">
+                            "Ótimo produto e bom atendimento aos clientes."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-neutral-200 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs font-bold text-black uppercase">Cliente Verificado</span>
+                            <span class="block text-[10px] text-neutral-500 font-semibold">Google Avaliações</span>
+                        </div>
+                        <i class="fa-brands fa-google text-neutral-400 text-lg"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Horários Section -->
+    <section id="localizacao" class="py-16 sm:py-24 scroll-mt-20 border-b border-neutral-200 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                
+                <!-- Contact & Hours Details -->
+                <div class="lg:col-span-5 space-y-6 sm:space-y-8">
+                    <div>
+                        <span class="px-3 py-1 bg-white border border-neutral-200 rounded-md text-xs text-neutral-700 font-mono uppercase font-bold shadow-sm">Onde Estamos</span>
+                        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-neutral-900 mt-4">
+                            Venha Conhecer Nossa Fábrica
+                        </h2>
+                        <p class="text-neutral-600 text-sm mt-2 font-normal">
+                            Estamos localizados em região estratégica de Belo Horizonte para atendimento ágil.
+                        </p>
+                    </div>
+
+                    <!-- Address Block -->
+                    <div class="p-6 rounded-2xl bg-white border border-neutral-200 shadow-md space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-black uppercase">Endereço Completo</h4>
+                                <p class="text-xs text-neutral-600 mt-1 leading-relaxed font-medium">
+                                    Rua Flôr da Noiva, 11 - Jardim Alvorada<br>
+                                    Belo Horizonte - MG, CEP 30810-100
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-neutral-100 flex items-center gap-3">
+                            <a href="https://www.google.com/maps/place/Happiness+Cervejaria/@-19.9002757,-43.9847933,17z" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-black hover:bg-neutral-800 text-xs font-bold text-white rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-diamond-turn-right text-xs"></i>
+                                Como Chegar (Google Maps)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hours Block -->
+                    <div class="p-6 rounded-2xl bg-white border border-neutral-200 shadow-md space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div class="w-full">
+                                <h4 class="text-sm font-bold text-black uppercase">Horário de Funcionamento</h4>
+                                <div class="mt-3 space-y-2 text-xs">
+                                    <div class="flex justify-between py-1 border-b border-neutral-100">
+                                        <span class="text-neutral-600 font-medium">Segunda-feira</span>
+                                        <span class="text-black font-mono font-bold">08:00 – 16:30</span>
+                                    </div>
+                                    <div class="flex justify-between py-1 border-b border-neutral-100">
+                                        <span class="text-neutral-600 font-medium">Terça-feira</span>
+                                        <span class="text-black font-mono font-bold">08:00 – 17:30</span>
+                                    </div>
+                                    <div class="flex justify-between py-1 border-b border-neutral-100">
+                                        <span class="text-neutral-600 font-medium">Quarta-feira</span>
+                                        <span class="text-black font-mono font-bold">08:00 – 17:30</span>
+                                    </div>
+                                    <div class="flex justify-between py-1 border-b border-neutral-100">
+                                        <span class="text-neutral-600 font-medium">Quinta-feira</span>
+                                        <span class="text-black font-mono font-bold">08:00 – 17:30</span>
+                                    </div>
+                                    <div class="flex justify-between py-1 border-b border-neutral-100">
+                                        <span class="text-neutral-600 font-medium">Sexta-feira</span>
+                                        <span class="text-black font-mono font-bold">08:00 – 17:30</span>
+                                    </div>
+                                    <div class="flex justify-between py-1 text-neutral-400 font-medium">
+                                        <span>Sábado e Domingo</span>
+                                        <span class="font-mono">Fechado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact -->
+                    <div class="p-6 rounded-2xl bg-white border border-neutral-200 shadow-md space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-black text-base"></i>
+                            <div>
+                                <span class="block text-xs text-neutral-500 uppercase font-bold">Telefone / WhatsApp</span>
+                                <a href="tel:31982140918" class="text-sm font-black text-black hover:underline">(31) 98214-0918</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Frame Embed -->
+                <div class="lg:col-span-7 h-[350px] sm:h-[450px] lg:h-full lg:min-h-[460px] rounded-2xl overflow-hidden border border-neutral-200 shadow-lg relative bg-neutral-100">
+                    <iframe 
+                        title="Mapa de Localização da Happiness Cervejaria"
+                        src="https://maps.google.com/maps?q=-19.9002757,-43.9847933&hl=pt-BR&z=17&output=embed" 
+                        class="w-full h-full border-0 transition-opacity" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5531982140918?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20chopp." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform group" aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
+        <span class="hidden md:block absolute right-16 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+            (31) 98214-0918
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Beer Calculator Logic
+        let currentProfileMultiplier = 0.35; // Moderate
+
+        const guestsInput = document.getElementById('calc-guests');
+        const hoursSelect = document.getElementById('calc-hours');
+        const litersOutput = document.getElementById('calc-result-liters');
+        const suggestionText = document.getElementById('calc-suggestion-text');
+
+        function setProfile(profile) {
+            document.querySelectorAll('.calc-profile-btn').forEach(btn => {
+                btn.classList.remove('bg-black', 'text-white', 'border-black');
+                btn.classList.add('bg-neutral-50', 'text-neutral-700', 'border-neutral-300');
+            });
+
+            const activeBtn = document.getElementById(`btn-profile-${profile}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-neutral-50', 'text-neutral-700', 'border-neutral-300');
+                activeBtn.classList.add('bg-black', 'text-white', 'border-black');
+            }
+
+            if (profile === 'moderate') currentProfileMultiplier = 0.30;
+            if (profile === 'standard') currentProfileMultiplier = 0.40;
+            if (profile === 'heavy') currentProfileMultiplier = 0.55;
+
+            calculateLiters();
+        }
+
+        function calculateLiters() {
+            const guests = parseInt(guestsInput.value) || 0;
+            const hours = parseInt(hoursSelect.value) || 4;
+
+            // Basic calculation formula
+            let total = Math.ceil(guests * currentProfileMultiplier * (hours / 4));
+            if (total < 30 && guests > 0) total = 30; // Minimum barrel size
+
+            litersOutput.textContent = total;
+
+            if (total <= 30) {
+                suggestionText.innerHTML = "Recomendamos <strong>1 Barril de 30L</strong> com chopeira higienizada.";
+            } else if (total <= 50) {
+                suggestionText.innerHTML = "Recomendamos <strong>1 Barril de 50L</strong> para atender confortavelmente.";
+            } else if (total <= 60) {
+                suggestionText.innerHTML = "Recomendamos <strong>2 Barris de 30L</strong> (permitindo variedade de estilos).";
+            } else {
+                const num50s = Math.floor(total / 50);
+                const remainder = total % 50;
+                suggestionText.innerHTML = `Recomendamos aproximadamente <strong>${num50s} Barril(is) de 50L</strong> ${remainder > 0 ? '+ 1 Barril de 30L' : ''}.`;
+            }
+        }
+
+        guestsInput.addEventListener('input', calculateLiters);
+        hoursSelect.addEventListener('change', calculateLiters);
+
+        function sendCalculatedBudget() {
+            const guests = guestsInput.value || '30';
+            const hours = hoursSelect.value || '4';
+            const liters = litersOutput.textContent;
+
+            const message = `Ol%C3%A1!%20Fiz%20a%20simula%C3%A7%C3%A3o%20no%20site%20para%20meu%20evento%20de%20${guests}%20pessoas%20(${hours}%20horas).%20Preciso%20de%20aproximadamente%20${liters}%20Litros%20de%20chopp.%20Gostaria%20de%20receber%20um%20or%C3%A7amento!`;
+            
+            window.open(`https://wa.me/5531982140918?text=${message}`, '_blank');
+        }
+
+        // Initialize calculation on load
+        calculateLiters();
+    </script>
+</body>
+</html>
